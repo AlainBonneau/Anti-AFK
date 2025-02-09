@@ -9,7 +9,6 @@ mouse = MouseController()
 tryCounter = 0
 count = 0
 
-# Liste des touches directionnelles
 keys = ['z', 'q', 's', 'd']
 
 # Fonction pour générer un mouvement de la souris aléatoire
@@ -22,18 +21,18 @@ def move_mouse_randomly():
 
 # Boucle infinie pour simuler des actions aléatoires
 while True:
-    if random.random() < 0.8:  # 80% de chance de presser une touche
-        key = random.choice(keys)  # Sélection d'une touche au hasard
-        keyboard.press(key)  # Maintien de la touche enfoncée
-        time.sleep(random.uniform(0.3, 1.2))  # Durée aléatoire de l'appui
-        keyboard.release(key)  # Relâchement de la touche
+    if random.random() < 0.8:
+        key = random.choice(keys)
+        keyboard.press(key)
+        time.sleep(random.uniform(0.3, 1.2))
+        keyboard.release(key)
         print(f"Touche pressée : {key}")
         tryCounter += 1
         count += 1
         if tryCounter == 5:
             print(f"Il y'a eu {count} touches pressées")
             tryCounter = 0
-    else:  # 20% de chance de bouger la souris
+    else:
         move_mouse_randomly()
     
     time.sleep(random.randint(120, 180))  # Attente aléatoire entre 2 et 3 minutes
